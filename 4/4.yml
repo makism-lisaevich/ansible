@@ -1,0 +1,21 @@
+---
+- hosts: 192.168.75.132
+  remote_user: root
+  tasks:
+  - name: nginx config
+    template: src=/pbs/4/nginx.conf dest=/etc/nginx/nginx.conf
+    
+  - name: php-fpm config
+    template: src=/pbs/4/www.conf dest=/etc/php-fpm.d/www.conf
+
+  - name: apache autostart off
+    shell: chkconfig httpd off
+
+  - name: apache stop
+    shell: service httpd start
+
+  - name: php-fpm autostart
+    shell: chkconfig php-fpm on
+
+  - name: php-fpm start
+    shell: service php-fpm start
