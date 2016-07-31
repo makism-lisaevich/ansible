@@ -1,0 +1,6 @@
+---
+- hosts: 192.168.75.132
+  remote_user: root
+  tasks:
+  - name: set mysql max_connections
+    shell: mysql -e "set global max_connections = 1024";

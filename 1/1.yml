@@ -1,0 +1,12 @@
+---
+- hosts: 192.168.75.132
+  remote_user: root
+  tasks:
+  - name: install packets
+    yum: state=latest name={{ item }}
+    with_items:
+    - nginx
+    - php-fpm
+    - httpd
+    - mysql-server
+    - phpmyadmin  	

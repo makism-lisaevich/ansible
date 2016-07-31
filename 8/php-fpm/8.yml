@@ -1,0 +1,9 @@
+---
+- hosts: 192.168.75.132
+  remote_user: root
+  tasks:
+  - name: nginx config
+    template: src=/pbs/7/php-fpm/nginx.conf dest=/etc/nginx/nginx.conf
+    
+  - name: php-fpm config
+    template: src=/pbs/7/php-fpm/www.conf dest=/etc/php-fpm.d/www.conf
